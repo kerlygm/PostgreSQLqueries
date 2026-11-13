@@ -29,3 +29,15 @@ group by date(payment_date), staff_id order by sum(amount) desc limit 1;
 select staff_id, sum(amount), date(payment_date) from payment
 where amount != 0
 group by date(payment_date), staff_id order by 2 desc limit 3;
+
+select * from payment limit 3;
+
+select customer_id, count(amount) as Number_of_Payments, round(avg(amount),2) as Average_Payment, date(payment_date) as Date from payment
+where Date(payment_date) in('2020-04-28', '2020-04-29', '2020-04-30')
+group by  customer_id, Date(payment_date)  having count(amount) > 1
+order by avg(amount) desc;
+
+******************************************************************************
+
+
+
