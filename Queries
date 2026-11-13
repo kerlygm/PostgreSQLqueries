@@ -1,0 +1,23 @@
+
+select payment_id, amount from payment where amount <= 2 order by amount desc;
+select payment_date from payment;
+
+select customer_id, amount from payment
+where (customer_id = 12 or customer_id = 25 or customer_id = 67 or customer_id = 93 or customer_id = 124 or customer_id = 234)
+and (amount = 4.99 or amount =7.99 or amount = 9.99) and (payment_date between'2020-01-01' and '2020-02-01') 
+order by amount desc;
+
+select customer_id, amount from payment 
+where customer_id in(12,25,67,93,124,234) and amount in(4.99,7.99,9.99) and (payment_date between '2020-01-01' and '2020-02-01')
+order by 2 desc;
+
+select min(replacement_cost), max(replacement_cost), round(avg(replacement_cost),2), round(sum(replacement_cost),2) from film;
+
+select * from payment limit 3;
+
+select staff_id, count(amount) as numbers_of_payments, sum(amount) as amount_collected from payment
+group by staff_id order by sum(amount) desc;
+
+select staff_id, count(amount) as numbers_of_payments, sum(amount) as amount_collected from payment
+where amount !=0
+group by staff_id order by 2 desc;
