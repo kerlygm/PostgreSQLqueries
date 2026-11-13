@@ -21,3 +21,11 @@ group by staff_id order by sum(amount) desc;
 select staff_id, count(amount) as numbers_of_payments, sum(amount) as amount_collected from payment
 where amount !=0
 group by staff_id order by 2 desc;
+
+*************************************************************************************
+select staff_id, sum(amount), date(payment_date) from payment
+group by date(payment_date), staff_id order by sum(amount) desc limit 1;
+
+select staff_id, sum(amount), date(payment_date) from payment
+where amount != 0
+group by date(payment_date), staff_id order by 2 desc limit 3;
