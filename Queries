@@ -52,4 +52,7 @@ select left(first_name, 1) || '***' || right(email, 19) as anonimo from customer
 select email from customer limit 4;
 select last_name || ', ' || left(email, position('.' in email) -1)  from customer limit 5;
 
+select email from customer limit 4;
+select left(email, 1) || '***' || substring( email, position('.' in email), 2) || '***' || right(email, 19) from customer limit 6;
+select '***' || substring( email, position('.' in email)-1, 0 ) || substring( email, position('.' in email), 2) || '***' || right(email, 19) from customer limit 5;
 
