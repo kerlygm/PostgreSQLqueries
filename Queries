@@ -39,5 +39,17 @@ order by avg(amount) desc;
 
 ******************************************************************************
 
+select * from customer limit 4;
+select lower(first_name), lower(last_name), lower(email) from customer
+where length(first_name) > 10 or length(last_name) > 10;
+
+select lower(right(email, 5)) from customer limit 5;
+select lower(left(right(email, 4),1)) from customer limit 5;
+
+select * from customer limit 4;
+select left(first_name, 1) || '***' || right(email, 19) as anonimo from customer limit 5;
+
+select email from customer limit 4;
+select last_name || ', ' || left(email, position('.' in email) -1)  from customer limit 5;
 
 
